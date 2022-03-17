@@ -1,0 +1,108 @@
+/* =============
+    Header
+============= */
+header{
+    background-color: white;
+    box-shadow: 0px 3px 20px rgba(0,0,0,0.13);
+    width: 100vw;
+    height: 50px;
+    z-index: 500;
+    position: fixed;
+    display: grid;
+    grid-template-areas: ". headercontents .";
+    grid-template-columns: auto 100% auto;
+
+    #header-contents{
+        grid-area: headercontents;
+        display: grid;
+        grid-template-areas: "logo burger";
+        grid-template-columns: 165px auto;
+
+        @include lg {
+            display: grid;
+            grid-template-areas: "logo nav";
+            grid-template-columns: 165px auto;
+        }
+
+        @include xl {
+            display: grid;
+            grid-template-areas: "logo nav";
+            grid-template-columns: 165px auto;
+        }
+
+        #logo-container {
+            grid-area: logo;
+            padding-left: 20px;
+            padding-top: 2px;
+            padding-right: 10px;
+
+            // a{
+            //     display: inline-block;
+
+            //     img{
+            //         width: 100%;
+            //     }
+            // }
+        }
+
+        #burger-container {
+            grid-area: burger;
+            justify-content: flex-end;
+            align-items: center;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            z-index: 1500;
+    
+            @include lg {
+                display: none !important;
+            }
+    
+            #hamburger_icon{
+                height: 40px;
+                width: 40px;
+                padding-right: 20px;
+            }
+        }
+
+        #nav-container {
+            // display: none !important;
+            width: 40vw;
+            height: 100vh;
+            background-color: white;
+            position: absolute;
+            right: 0;
+            opacity:0;
+
+            @include md{
+                width: 30vw;
+            }
+
+            @include lg{
+                grid-area: nav;
+                display: block !important;
+                height: 100%;
+                width: 100%;
+                background-color: transparent;
+                opacity:1;
+            }
+
+            ul{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+
+                @include lg{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    padding-left: 5vw;
+                    padding-right: 20px;
+                }
+            }
+        }
+    }
+}
